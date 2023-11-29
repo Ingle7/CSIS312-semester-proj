@@ -1,13 +1,19 @@
+import java.io.IOException;
 import java.util.*;
 
 public class Main
 {
+
     private static Clock clock;
         
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
+        BibleVerse example = new BibleVerse();
+        String response = example.run("https://raw.github.com/square/okhttp/master/README.md");
+        System.out.println("Verse of the day:\n" + response);
+
         Calendar time = Calendar.getInstance(
-            TimeZone.getTimeZone("Europe/Paris")
+            TimeZone.getTimeZone("EST")
         );
         
         Clock clock = new Clock();
